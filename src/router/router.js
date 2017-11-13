@@ -27,7 +27,7 @@ export default new Router({
       name: 'Test',
       component: Test,
       hidden: true,
-      leaf: false
+      leaf: true
     }
 
   ]
