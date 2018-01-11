@@ -12,7 +12,7 @@ import locale from 'element-ui/lib/locale/'
 import App from './App'
 
 // 路由配置文件
-import router from './router/router'
+import routes from './router/routes'
 
 // 引用注入
 Vue.use(VueRouter)
@@ -24,10 +24,12 @@ Vue.use(ElementUI, { locale })
 Vue.config.productionTip = false
 Vue.config.debug = true
 
+const router = new VueRouter({routes})
 /* eslint-disable no-new */
-new Vue({
+const VueComponent = new Vue({
   el: '#app',
   router,
-  template: '<App/>',
-  components: { App }
+  render: h => h(App)
 })
+
+window.vue = VueComponent

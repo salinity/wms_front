@@ -1,20 +1,12 @@
 <template>
   <div id="app">
-        <el-container>
-          <el-main>
-            <layouts-main></layouts-main>
-          </el-main>
-        </el-container>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import layoutsMain from './components/layouts/Main'
 export default {
   name: 'app',
-  components: {
-    layoutsMain
-  },
   beforeCreate: function () {
     console.log('App beforeCreate 初始化时同步调用')
   },
