@@ -1,3 +1,3 @@
 <<template>
-    <span>&yen</span>
+    <span>&copy;could.hao</span>
 </template>

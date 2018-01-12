@@ -14,6 +14,12 @@ import App from './App'
 // 路由配置文件
 import routes from './router/routes'
 
+// 全局组件
+import zTable from './components/assembly/zTable'
+
+// 注册全局组件
+Vue.component(zTable.name, zTable)
+
 // 引用注入
 Vue.use(VueRouter)
 Vue.use(VueResource)

@@ -6,9 +6,9 @@
       <el-aside><layouts-aside></layouts-aside></el-aside>
       <el-main>
          <div class="outborder">
-          <strong style="width:200px;float:right;color: #475669;">{{$route.name}}</strong>
-          <el-breadcrumb separator="/" style="float:left;">
-            <el-breadcrumb-item v-for="item in $route.matched" :key="item.key">
+          <strong style="width:200px;float:left;color: #475669;">{{$route.name}}</strong>
+          <el-breadcrumb separator="/" style="float:right;">
+            <el-breadcrumb-item v-for="item in $route.matched" v-if="item.name != null" :key="item.key">
               {{ item.name }}
             </el-breadcrumb-item>
           </el-breadcrumb>
@@ -43,13 +43,20 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-.el-header,
-.el-footer {
+.el-header {
   background-color: #096897;
   color: rgb(180, 156, 156);
   height: 130px ! important;
   text-align: center;
   line-height: 130px;
+}
+
+.el-footer {
+  background-color: #096897;
+  color: rgb(180, 156, 156);
+  height: 100px ! important;
+  text-align: center;
+  line-height: 100px;
 }
 
 .el-aside {
@@ -79,6 +86,7 @@ body > .el-container {
 }
 
 .outborder{
+  background: #e6e6e6;
   height: 30px;
   align-content: center;
 }
