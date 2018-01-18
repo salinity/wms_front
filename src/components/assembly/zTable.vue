@@ -1,12 +1,21 @@
 <template>
-  <el-table :data="tableData1" border style="width: 100%" height="1300">
-    <template v-for="(item ,index) in tableColumn" v-if="!item.hidden">
-    <el-table-column :prop="item.prop" :label="item.label" :sortable="item.sortable" :width="item.width" :key="index">
-    </el-table-column>
-    </template>
-  </el-table>
+  <section>
+  <div>
+    <el-table :data="tableData" stripe border style="width: 100%" :height="tableHeight">
+      <template v-for="(item ,index) in tableColumn" v-if="!item.hidden">
+      <el-table-column :prop="item.prop" :label="item.label" :sortable="item.sortable" :width="item.width" :key="index">
+      </el-table-column>
+      </template>
+    </el-table>
+  </div>
+  <!-- <div class="block">
+    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+     :current-page="currentPage4" :page-sizes="[10, 20, 30, 50, 100]" 
+     :page-size="100" layout="total, sizes, prev, pager, next, jumper" :total="400">
+    </el-pagination>
+  </div> -->
+  </section>
 </template>
-
 <script>
 export default {
   name: 'z-table',
@@ -18,71 +27,15 @@ export default {
     tableData: {
       type: Array,
       required: true
-    }
+    },
+    tableHeight: 0
   },
   data () {
     return {
-      tableData1: [{
-        date: '2016-05-02',
-        name: '王小虎',
-        login_name: 'wangxiaohu',
-        address: '上海市普陀区金沙江路 1518 弄',
-        tag: '家'
-      }, {
-        date: '2016-05-02',
-        name: '王小虎',
-        login_name: 'wangxiaohu',
-        address: '上海市普陀区金沙江路 1518 弄',
-        tag: '家'
-      }, {
-        date: '2016-05-02',
-        name: '王小虎',
-        login_name: 'wangxiaohu',
-        address: '上海市普陀区金沙江路 1518 弄',
-        tag: '家'
-      }, {
-        date: '2016-05-02',
-        name: '王小虎',
-        login_name: 'wangxiaohu',
-        address: '上海市普陀区金沙江路 1518 弄',
-        tag: '家'
-      }, {
-        date: '2016-05-02',
-        name: '王小虎',
-        login_name: 'wangxiaohu',
-        address: '上海市普陀区金沙江路 1518 弄',
-        tag: '家'
-      }, {
-        date: '2016-05-02',
-        name: '王小虎',
-        login_name: 'wangxiaohu',
-        address: '上海市普陀区金沙江路 1518 弄',
-        tag: '家'
-      }, {
-        date: '2016-05-02',
-        name: '王小虎',
-        login_name: 'wangxiaohu',
-        address: '上海市普陀区金沙江路 1518 弄',
-        tag: '家'
-      }, {
-        date: '2016-05-02',
-        name: '王小虎',
-        login_name: 'wangxiaohu',
-        address: '上海市普陀区金沙江路 1518 弄',
-        tag: '家'
-      }, {
-        date: '2016-05-02',
-        name: '王小虎',
-        login_name: 'wangxiaohu',
-        address: '上海市普陀区金沙江路 1518 弄',
-        tag: '家'
-      }, {
-        date: '2016-05-02',
-        name: '王小虎',
-        login_name: 'wangxiaohu',
-        address: '上海市普陀区金沙江路 1518 弄',
-        tag: '家'
-      }]
+      currentPage1: 5,
+      currentPage2: 5,
+      currentPage3: 5,
+      currentPage4: 4
     }
   },
   created () {
@@ -97,7 +50,20 @@ export default {
     },
     filterTag (value, row) {
       return row.tag === value
+    },
+    handleSizeChange (val) {
+      console.log(`每页 ${val} 条`)
+    },
+    handleCurrentChange (val) {
+      console.log(`当前页: ${val}`)
     }
   }
 }
 </script>
+<<style>
+@import url("http://unpkg.com/element-ui@2.0.11/lib/theme-chalk/index.css");
+
+.el-table__body-wrapper {
+  background: #ececd2;
+}
+</style>

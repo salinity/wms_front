@@ -7,7 +7,7 @@
       <el-main>
          <div class="outborder">
           <strong style="width:200px;float:left;color: #475669;">{{$route.name}}</strong>
-          <el-breadcrumb separator="/" style="float:right;">
+          <el-breadcrumb separator-class="el-icon-arrow-right" style="float:right;">
             <el-breadcrumb-item v-for="item in $route.matched" v-if="item.name != null" :key="item.key">
               {{ item.name }}
             </el-breadcrumb-item>
@@ -72,6 +72,12 @@ export default {
   text-align: center;
 }
 
+@media screen and (max-width: 10000px) {
+  .el-main {
+    height: 1307px;
+  }
+}
+
 body > .el-container {
   margin-bottom: 40px;
 }
@@ -89,5 +95,9 @@ body > .el-container {
   background: #e6e6e6;
   height: 30px;
   align-content: center;
+}
+
+.el-submenu__title {
+  background: #585858;
 }
 </style>

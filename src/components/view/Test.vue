@@ -1,32 +1,18 @@
 <template>
-  <z-table :tableColumn="tableColumn" :tableData="tableData"></z-table>
-  <!-- <el-table :data="tableData" style="width: 100%">
-    <el-table-column prop="date" label="日期" sortable width="180">
-    </el-table-column>
-    <el-table-column prop="name" label="姓名" width="180">
-    </el-table-column>
-    <el-table-column prop="login_name" label="登录名">
-    </el-table-column>
-    <el-table-column prop="address" label="地址" :formatter="formatter">
-    </el-table-column>
-    <el-table-column prop="tag" label="标签" width="100"
-      :filters="[{ text: '家', value: '家' }, { text: '公司', value: '公司' }]"
-      :filter-method="filterTag"
-      filter-placement="bottom-end">
-    </el-table-column>
-  </el-table> -->
+  <z-table :tableColumn="tableColumn" :tableData="tableData" :tableHeight="tableHeight"></z-table>
 </template>
 
 <script>
   export default {
     data () {
       return {
+        tableHeight: 1000,
         tableColumn: [
-          {prope: 'date', label: '日期', sortable: '', hidden: false},
-          {prope: 'name', label: '姓名', sortable: ''},
-          {prope: 'login_name', label: '登录名', sortable: '', width: 200},
-          {prope: 'address', label: '地址', sortable: ''},
-          {prope: 'tag', label: '标签', sortable: '', width: 180}
+          {prop: 'date', label: '日期', sortable: '', hidden: false},
+          {prop: 'name', label: '姓名', sortable: ''},
+          {prop: 'login_name', label: '登录名', sortable: '', width: 200},
+          {prop: 'address', label: '地址', sortable: ''},
+          {prop: 'tag', label: '标签', sortable: '', width: 180}
         ],
         tableData: [{
           date: '2016-05-02',
