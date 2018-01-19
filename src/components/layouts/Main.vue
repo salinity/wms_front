@@ -25,7 +25,7 @@ import layoutsHeader from './Header'
 import layoutsAside from './Aside'
 import layoutsFooter from './Footer'
 export default {
-  name: 'main',
+  name: 'main-view',
   components: {
     layoutsHeader,
     layoutsAside,

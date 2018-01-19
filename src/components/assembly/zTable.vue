@@ -8,12 +8,12 @@
       </template>
     </el-table>
   </div>
-  <!-- <div class="block">
+  <div class="block">
     <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
      :current-page="currentPage4" :page-sizes="[10, 20, 30, 50, 100]" 
      :page-size="100" layout="total, sizes, prev, pager, next, jumper" :total="400">
     </el-pagination>
-  </div> -->
+  </div>
   </section>
 </template>
 <script>
@@ -65,5 +65,9 @@ export default {
 
 .el-table__body-wrapper {
   background: #ececd2;
+}
+
+.el-pagination{
+  margin-top: 3px;
 }
 </style>
