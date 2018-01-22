@@ -1,5 +1,6 @@
 <template lang="pug">
   section
+    // sercher toolbar
     el-col.toolbar.search-toolbar(:span="24")
       el-form(:inline="true" :model="filters")
         .panel-box-left
@@ -10,6 +11,7 @@
           el-form-item
             el-input(v-model="filters.address" placeholder="地址")
         z-search-button(@rest="rest" @query="query")
+    // dataTable
     .tabel-class
       z-table(:tableColumn="tableColumn" :tableData="tableData" :tableHeight="tableHeight")
 </template>

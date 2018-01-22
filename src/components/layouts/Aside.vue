@@ -4,13 +4,13 @@
       template(v-for="(item, key) in menus" v-if="!item.hidden")
         el-submenu(:index="item.path" :key="key" v-if="item.children")
           template(slot="title")
-            i.item.iconCls
+            i(:class="item.iconCls")
             span {{item.name}}
           el-menu-item(v-for="(child, key) in item.children" :key="key" :index="child.path")
-            i.child.iconCls
+            i(:class="child.iconCls")
             span.childSpan {{child.name}}
         el-menu-item(v-if="!item.children" :key="key" :index="item.path")
-          i.item.iconCls
+          i(:class="item.iconCls")
           span {{item.name}}
 </template>
 <style>
