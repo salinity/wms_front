@@ -1,20 +1,13 @@
-<template>
-  <section>
-  <div>
-    <el-table :data="tableData" stripe border style="width: 100%" :height="tableHeight">
-      <template v-for="(item ,index) in tableColumn" v-if="!item.hidden">
-      <el-table-column :prop="item.prop" :label="item.label" :sortable="item.sortable" :width="item.width" :key="index">
-      </el-table-column>
-      </template>
-    </el-table>
-  </div>
-  <div class="block">
-    <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-     :current-page="currentPage4" :page-sizes="[10, 20, 30, 50, 100]" 
-     :page-size="100" layout="total, sizes, prev, pager, next, jumper" :total="400">
-    </el-pagination>
-  </div>
-  </section>
+<template lang="pug">
+  section
+    div
+      el-table(:data="tableData" stripe border :height="tableHeight")
+        template(v-for="(item ,index) in tableColumn" v-if="!item.hidden")
+          el-table-column(:prop="item.prop" :label="item.label" :sortable="item.sortable" :width="item.width" :key="index")
+    .block
+      el-pagination(@size-change="handleSizeChange" @current-change="handleCurrentChange"
+      :current-page="currentPage4" :page-sizes="[10, 20, 30, 50, 100]" 
+      :page-size="100" layout="total, sizes, prev, pager, next, jumper" :total="400")
 </template>
 <script>
 export default {

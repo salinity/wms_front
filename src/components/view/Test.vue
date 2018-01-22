@@ -1,25 +1,17 @@
-<template>
-  <section>
-    <el-col :span="24" class="toolbar search-toolbar">
-      <el-form :inline="true" :model="filters">
-        <div class="panel-box-left">
-          <el-form-item>
-            <el-date-picker v-model="filters.date" type="date" placeholder="选择日期"></el-date-picker>
-          </el-form-item>
-          <el-form-item>
-            <el-input v-model="filters.name" placeholder="用户名"></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-input v-model="filters.address" placeholder="地址"></el-input>
-          </el-form-item>
-        </div>
-        <z-search-button @rest="rest" @query="query"></z-search-button>
-      </el-form>
-    </el-col>
-    <div class="tabel-class">
-      <z-table :tableColumn="tableColumn" :tableData="tableData" :tableHeight="tableHeight"></z-table>
-    </div>
-  </section>
+<template lang="pug">
+  section
+    el-col.toolbar.search-toolbar(:span="24")
+      el-form(:inline="true" :model="filters")
+        .panel-box-left
+          el-form-item
+            el-date-picker(v-model="filters.date" type="date" placeholder="选择日期")
+          el-form-item
+            el-input(v-model="filters.name" placeholder="用户名")
+          el-form-item
+            el-input(v-model="filters.address" placeholder="地址")
+        z-search-button(@rest="rest" @query="query")
+    .tabel-class
+      z-table(:tableColumn="tableColumn" :tableData="tableData" :tableHeight="tableHeight")
 </template>
 
 <script>
@@ -142,6 +134,6 @@
 }
 
 .tabel-class{
-  background: #cccccc;
+  background: #cccccc; 
 }
 </style>

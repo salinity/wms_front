@@ -1,12 +1,9 @@
-<template>
-  <div class="panel-box-right">
-    <el-form-item>
-      <el-button type="primary" size="small" v-on:click="query">查询</el-button>
-    </el-form-item>
-    <el-form-item>
-      <el-button type="primary" size="small" v-on:click="rest">重置</el-button>
-    </el-form-item>
-  </div>
+<template lang="pug">
+  .panel-box-right
+    el-form-item
+      el-button(type="primary" size="small" v-on:click="query") 查询
+    el-form-item
+      el-button(type="primary" size="small" v-on:click="rest") 重置
 </template>
 <script>
 export default {

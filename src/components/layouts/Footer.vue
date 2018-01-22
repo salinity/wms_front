@@ -1,3 +1,3 @@
-<<template>
-    <span>&copy;could.hao</span>
+<<template lang="pug">
+    span &copy;could.hao
 </template>

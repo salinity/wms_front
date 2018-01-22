@@ -1,24 +1,19 @@
-<template>
-<div id="main">
-  <el-container>
-    <el-header><layouts-header></layouts-header></el-header>
-    <el-container>
-      <el-aside><layouts-aside></layouts-aside></el-aside>
-      <el-main>
-         <div class="outborder">
-          <strong style="width:200px;float:left;color: #475669;">{{$route.name}}</strong>
-          <el-breadcrumb separator-class="el-icon-arrow-right" style="float:right;">
-            <el-breadcrumb-item v-for="item in $route.matched" v-if="item.name != null" :key="item.key">
-              {{ item.name }}
-            </el-breadcrumb-item>
-          </el-breadcrumb>
-        </div>
-        <router-view></router-view>
-      </el-main>
-    </el-container>
-    <el-footer><layouts-footer></layouts-footer></el-footer>
-  </el-container>
-</div>
+<template lang="pug">
+div#main
+  el-container
+    el-header
+      layouts-header
+    el-container
+      el-aside
+        layouts-aside
+      el-main
+        .outborder
+          strong(style="width:200px;float:left;color: #475669;") {{$route.name}}
+          el-breadcrumb(separator-class="el-icon-arrow-right" style="float:right;")
+            el-breadcrumb-item(v-for="item in $route.matched" v-if="item.name != null" :key="item.key") {{ item.name }}
+        router-view
+    el-footer
+      layouts-footer
 </template>
 <script>
 import layoutsHeader from './Header'

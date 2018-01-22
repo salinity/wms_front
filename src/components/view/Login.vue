@@ -1,7 +1,6 @@
-<<template>
-  <div class="main">
-    <img class="loginImg" src="../../../static/image/bg_login.jpg">
-  </div>
+<template lang="pug">
+  .main
+    img.loginImg(src="../../../static/image/bg_login.jpg")
 </template>
 <style>
   .main{

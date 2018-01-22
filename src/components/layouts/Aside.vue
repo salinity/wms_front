@@ -1,24 +1,17 @@
-<template>
-  <aside>
-    <el-menu :default-active="$router.path" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" unique-opened router>
-      <template v-for="(item, key) in menus" v-if="!item.hidden">
-        <el-submenu :index="item.path" :key="key" v-if="item.children">
-          <template slot="title">
-            <i :class="item.iconCls"></i>
-            <span>{{item.name}}</span>
-          </template>
-          <el-menu-item v-for="(child, key) in item.children" :key="key" :index="child.path">
-            <i :class="child.iconCls"></i>
-            <span class="childSpan">{{child.name}}</span>
-          </el-menu-item>
-        </el-submenu>
-        <el-menu-item v-if="!item.children" :key="key" :index="item.path">
-          <i :class="item.iconCls"></i>
-          <span>{{item.name}}</span>
-        </el-menu-item>
-      </template>
-    </el-menu>
-  </aside>
+<template lang="pug">
+  aside
+    el-menu(:default-active="$router.path" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" unique-opened router)
+      template(v-for="(item, key) in menus" v-if="!item.hidden")
+        el-submenu(:index="item.path" :key="key" v-if="item.children")
+          template(slot="title")
+            i.item.iconCls
+            span {{item.name}}
+          el-menu-item(v-for="(child, key) in item.children" :key="key" :index="child.path")
+            i.child.iconCls
+            span.childSpan {{child.name}}
+        el-menu-item(v-if="!item.children" :key="key" :index="item.path")
+          i.item.iconCls
+          span {{item.name}}
 </template>
 <style>
   aside{
