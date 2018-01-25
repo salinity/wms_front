@@ -2,12 +2,16 @@
   section
     div
       el-table(:data="tableData" stripe border :height="tableHeight")
+        el-table-column(fixed="left", label="操作", width="100")
+          template(slot-scope="scope")
+            el-button(type="text" size="small") 修改
+            el-button(type="text" size="small") 编辑
         template(v-for="(item ,index) in tableColumn" v-if="!item.hidden")
           el-table-column(:prop="item.prop" :label="item.label" :sortable="item.sortable" :width="item.width" :key="index")
     .block
       el-pagination(@size-change="handleSizeChange" @current-change="handleCurrentChange"
-      :current-page="currentPage4" :page-sizes="[10, 20, 30, 50, 100]" 
-      :page-size="100" layout="total, sizes, prev, pager, next, jumper" :total="400")
+      :current-page="currentPage4" :page-sizes="[10, 30, 50]" 
+      :page-size="30" layout="total, sizes, prev, pager, next, jumper" :total="tableData.length")
 </template>
 <script>
 export default {
@@ -53,8 +57,7 @@ export default {
   }
 }
 </script>
-<<style>
-@import url("http://unpkg.com/element-ui@2.0.11/lib/theme-chalk/index.css");
+<style>
 
 .el-table__body-wrapper {
   background: #ececd2;

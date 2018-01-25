@@ -2,7 +2,7 @@
   section
     // sercher toolbar
     el-col.toolbar.search-toolbar(:span="24")
-      el-form(:inline="true" :model="filters")
+      el-form(:inline="true" :model="filters" rel="searchFilter")
         .panel-box-left
           el-form-item
             el-date-picker(v-model="filters.date" type="date" placeholder="选择日期")
@@ -13,7 +13,7 @@
         z-search-button(@rest="rest" @query="query")
     // dataTable
     .tabel-class
-      z-table(:tableColumn="tableColumn" :tableData="tableData" :tableHeight="tableHeight")
+      z-table(:tableColumn="tableColumn" :tableData="tableData" :tableHeight="tableHeight" @query="query")
 </template>
 
 <script>
@@ -24,9 +24,9 @@
         tableColumn: [
           {prop: 'date', label: '日期', sortable: '', hidden: false},
           {prop: 'name', label: '姓名', sortable: ''},
-          {prop: 'login_name', label: '登录名', sortable: '', width: 200},
+          {prop: 'login_name', label: '登录名', sortable: '', width: 100},
           {prop: 'address', label: '地址', sortable: ''},
-          {prop: 'tag', label: '标签', sortable: '', width: 180}
+          {prop: 'tag', label: '标签', sortable: ''}
         ],
         tableData: [{
           date: '2016-05-02',
