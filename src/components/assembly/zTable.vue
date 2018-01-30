@@ -5,12 +5,12 @@
         el-table-column(fixed="left", label="操作", width="100")
           template(slot-scope="scope")
             el-button(type="text" size="small") 修改
-            el-button(type="text" size="small") 编辑
-        template(v-for="(item ,index) in tableColumn" v-if="!item.hidden")
+            el-button(type="text" size="small") 删除
+        template(v-for="(item ,index) in activeTableColumn")
           el-table-column(:prop="item.prop" :label="item.label" :sortable="item.sortable" :width="item.width" :key="index")
     .block
       el-pagination(@size-change="handleSizeChange" @current-change="handleCurrentChange"
-      :current-page="currentPage4" :page-sizes="[10, 30, 50]" 
+      :current-page="1" :page-sizes="[10, 30, 50]" 
       :page-size="30" layout="total, sizes, prev, pager, next, jumper" :total="tableData.length")
 </template>
 <script>
@@ -29,10 +29,13 @@ export default {
   },
   data () {
     return {
-      currentPage1: 5,
-      currentPage2: 5,
-      currentPage3: 5,
-      currentPage4: 4
+    }
+  },
+  computed: {
+    activeTableColumn: function () {
+      return this.tableColumn.filter(function (item) {
+        return !item.hidden
+      })
     }
   },
   created () {
@@ -65,5 +68,10 @@ export default {
 
 .el-pagination{
   margin-top: 3px;
+}
+
+.el-table td, .el-table th {
+    padding: 0px 0;
+    min-width: 0;
 }
 </style>

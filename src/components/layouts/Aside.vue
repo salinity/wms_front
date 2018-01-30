@@ -22,7 +22,7 @@
     margin-top: 8px;
   }
   aside span {
-    font-size: 32px;
+    font-size: 21px;
     font-family: inherit;
   }
   aside el-submenu el-submenu span {
@@ -41,8 +41,27 @@
     background: gray;
   }
   .childSpan {
-    font-size: 27px;
+    font-size: 16px;
     font-family: inherit;
+  }
+
+  .el-submenu__title {
+    height: 35px;
+    line-height: 35px;
+  }
+
+  .el-submenu .el-menu-item {
+    height: 28px;
+    line-height: 28px;
+    padding: 0 45px;
+    min-width: auto;
+    background: #bde6e6;
+  }
+  .el-menu-item{
+    height: 35px;
+    line-height: 35px;
+    color: #f5f8f8;
+    background: #585858;
   }
 </style>
 

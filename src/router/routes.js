@@ -3,9 +3,8 @@ import Hello from '@/components/view/Hello'
 import Login from '@/components/view/Login'
 import Test from '@/components/view/Test'
 import Main from '@/components/layouts/Main'
-import Study from '@/components/view/study'
-import Motion from '@/components/view/motion'
-import Entertainment from '@/components/view/entertainment'
+import Common from '@/components/view/Common'
+import Users from '@/components/view/Users'
 
 let routes = [
   {
@@ -32,7 +31,7 @@ let routes = [
       { path: '/study',
         name: '学习',
         iconCls: 'el-icon-edit',
-        component: Study,
+        component: Common,
         hidden: false,
         leaf: true,
         children: [
@@ -42,7 +41,7 @@ let routes = [
       { path: '/motion',
         name: '运动',
         iconCls: 'el-icon-d-arrow-right',
-        component: Motion,
+        component: Common,
         hidden: false,
         leaf: true,
         children: [
@@ -51,13 +50,20 @@ let routes = [
       { path: '/entertainment',
         name: '娱乐',
         iconCls: 'el-icon-service',
-        component: Entertainment,
+        component: Common,
         hidden: false,
         leaf: true,
         children: [
           {path: '/entertainment/music', name: '听歌', iconCls: 'el-icon-star-off', component: Test, hidden: false, leaf: true},
           {path: '/entertainment/drama', name: '赏剧', iconCls: 'el-icon-star-off', component: Test, hidden: false, leaf: true}
-        ]}
+        ]},
+      { path: '/user',
+        name: '用户',
+        iconCls: 'el-icon-view',
+        component: Users,
+        hidden: false,
+        leaf: true
+      }
     ]
   }
 ]

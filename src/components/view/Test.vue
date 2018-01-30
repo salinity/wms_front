@@ -10,17 +10,18 @@
             el-input(v-model="filters.name" placeholder="用户名")
           el-form-item
             el-input(v-model="filters.address" placeholder="地址")
-        z-search-button(@rest="rest" @query="query")
+          div {{filters.address}}
+        z-search-button(@rest="$_test_rest" @query="$_test_query")
     // dataTable
     .tabel-class
-      z-table(:tableColumn="tableColumn" :tableData="tableData" :tableHeight="tableHeight" @query="query")
+      z-table(:tableColumn="tableColumn" :tableData="tableData" :tableHeight="tableHeight" @query="$_test_query")
 </template>
 
 <script>
   export default {
     data () {
       return {
-        tableHeight: 1000,
+        tableHeight: 530,
         tableColumn: [
           {prop: 'date', label: '日期', sortable: '', hidden: false},
           {prop: 'name', label: '姓名', sortable: ''},
@@ -108,13 +109,13 @@
       filterTag (value, row) {
         return row.tag === value
       },
-      rest: function () {
+      $_test_rest: function () {
         console.log('rest is click')
         this.filters = {}
       },
-      query: function () {
+      $_test_query: function () {
+        console.log(this.filters)
         console.log('query is click')
-        this.filters = {}
       }
     }
   }
@@ -125,14 +126,6 @@
 .panel-box-left {
   width: auto;
   float: left;
-}
-
-.el-col-24 {
-  padding-left: 20px;
-  padding-top: 20px;
-  margin-bottom: 20px;
-  background: #cccccc;
-  width: 100%;
 }
 
 .tabel-class{
